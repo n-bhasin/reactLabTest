@@ -6,7 +6,7 @@ class TweetContainer extends Component {
     super(props);
     this.state = {
       message: "",
-      comments: ["tags"],
+      comments: [],
       isPost: false,
     };
 
@@ -36,18 +36,16 @@ class TweetContainer extends Component {
           />
           <button type="submit">Post</button>
         </form>
-        <ul>
+        {/* <ul>
           {this.state.comments.map((p) => (
             <li>
               <Comment comment={p} />
               <br />
             </li>
           ))}
-        </ul>
+        </ul> */}
 
-        {/* {this.state.isPost ?
-
-        <Comment comment={this.state.post}></Comment> : ""} */}
+        {this.state.isPost ? <Comment comment={this.state.post}></Comment> : ""}
       </div>
     );
   }
