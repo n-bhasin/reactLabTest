@@ -6,11 +6,9 @@ class TweetContainer extends Component {
     comments: [],
     message: "",
   };
-  //     constructor(props) {
+  //   constructor(props) {
   //     super(props);
-  //     this.
-
-  //     this.handleSubmit = this.handleSubmit.bind(this);
+  //     this.this.handleSubmit = this.handleSubmit.bind(this);
   //     this.handleChange = this.handleChange.bind(this);
   //   }
   handleSubmit = (event) => {
@@ -25,8 +23,10 @@ class TweetContainer extends Component {
     this.setState({ message: event.target.value });
   };
   render() {
+    console.log(this.props);
     return (
       <div>
+        <h2>{this.props.status}</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -36,14 +36,11 @@ class TweetContainer extends Component {
           />
           <button type="submit">Post</button>
         </form>
-        <ul>
-          {this.state.comments.map((p) => (
-            <li>
-              <Comment comment={p} />
-              <br />
-            </li>
-          ))}
-        </ul>
+        {this.state.comments.map((p) => (
+          <p>
+            <Comment key={p} comment={p} />
+          </p>
+        ))}
       </div>
     );
   }

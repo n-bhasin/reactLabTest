@@ -5,14 +5,11 @@ import TweetContainer from "./components/TweetContainer";
 function App() {
   return (
     <>
-      <h1>Netflix</h1>
-      <TweetContainer />
+      <TweetContainer status="Twitter Clone" />
 
-      <h1>Twitter Clone</h1>
-      <TweetContainer />
+      <TweetContainer status="Facebook Clone" />
 
-      <h1>Amazon Prime</h1>
-      <TweetContainer />
+      <TweetContainer status="Snapchat Clone" />
     </>
   );
 }

@@ -11,8 +11,11 @@ class Comment extends Component {
     console.log(this.state.value);
     return (
       <>
-        <Timer />
-        <span>{this.props.comment}</span>
+        <Timer /> &nbsp;
+        <span>
+          <b>{this.props.comment}</b>
+        </span>
+        &nbsp;
         <LikeButton />
       </>
     );
