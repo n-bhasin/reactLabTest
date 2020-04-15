@@ -2,27 +2,27 @@ import React, { Component } from "react";
 import Comment from "./Comment";
 
 class TweetContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: "",
-      comments: [],
-      isPost: false,
-    };
+  state = {
+    comments: [],
+    message: "",
+  };
+  //     constructor(props) {
+  //     super(props);
+  //     this.
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+  //     this.handleSubmit = this.handleSubmit.bind(this);
+  //     this.handleChange = this.handleChange.bind(this);
+  //   }
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.state);
-    this.setState({ comments: this.state.message, isPost: true });
-    this.setState({ message: "" });
+    console.log(this.state);
+    let m = this.state.comments;
+    m.push(this.state.message);
+    this.setState({ comments: m, message: "" });
   };
 
   handleChange = (event) => {
-    let message = event.target.value;
-    this.setState({ message });
+    this.setState({ message: event.target.value });
   };
   render() {
     return (
@@ -36,16 +36,14 @@ class TweetContainer extends Component {
           />
           <button type="submit">Post</button>
         </form>
-        {/* <ul>
+        <ul>
           {this.state.comments.map((p) => (
             <li>
               <Comment comment={p} />
               <br />
             </li>
           ))}
-        </ul> */}
-
-        {this.state.isPost ? <Comment comment={this.state.post}></Comment> : ""}
+        </ul>
       </div>
     );
   }
